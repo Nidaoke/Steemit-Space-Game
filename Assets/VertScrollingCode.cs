@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class VertScrollingCode : MonoBehaviour {
 
-	public float speed;
 	public bool starting;
 	public VertScrollingCode otherOne;
 
@@ -23,10 +22,13 @@ public class VertScrollingCode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += new Vector3 (0, -speed, 0);
+		transform.position += new Vector3 (0, -Manager.Instance.scrollSpeed, 0);
 
 		if (transform.position.y <= lessFloat) {
 			transform.position = new Vector3 (0, setFloat, 0); 
+
+			Manager.Instance.GetHarder ();
+			Debug.Log ("Looped " + Manager.Instance.loopCount + " times");
 		}
 	}
 
