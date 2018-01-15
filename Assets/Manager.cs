@@ -6,7 +6,7 @@
 	public float scrollSpeed = 1;
 
 	public void GetHarder(){
-		scrollSpeed += .05f;
+		scrollSpeed *= 1.2f;
 		loopCount++;
 	}
 }

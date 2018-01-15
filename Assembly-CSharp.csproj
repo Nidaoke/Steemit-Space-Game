@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Manager.cs" />
+     <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\Singleton.cs" />
      <Compile Include="Assets\VertScrollingCode.cs" />
  <Reference Include="UnityEngine.UI">
