@@ -8,23 +8,28 @@ public class Player : MonoBehaviour {
 	public float speed;
     public float speedSec;
     public GameObject rockBullet;
+    public float bulletShootingSpeed;
+    private float tempBulletSpeed;
 
     private bool right, left, up, down;
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(Shoot());
+        tempBulletSpeed = bulletShootingSpeed;
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(KeyCode.Space))
+        if (tempBulletSpeed < 0)
         {
-            GameObject rock = Instantiate(rockBullet, transform.position, Quaternion.identity) as GameObject;
-            rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7);
-            Destroy(rock, 5);
+            Shoot();
+            tempBulletSpeed = bulletShootingSpeed;
+        }
+        else
+        {
+            tempBulletSpeed -= Time.deltaTime;
         }
 
         //if (Input.GetAxis("Horizontal") > .3)
@@ -73,12 +78,24 @@ public class Player : MonoBehaviour {
             rgbd.velocity = new Vector2(rgbd.velocity.x, 0);
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
         GameObject rock = Instantiate(rockBullet, transform.position, Quaternion.identity) as GameObject;
         rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7);
         Destroy(rock, 5);
-        yield return new WaitForSeconds(1);
-        StartCoroutine(Shoot());
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            Die();
+            Destroy(other.gameObject);
+        }
+    }
+
+    void Die()
+    {
+        Manager.Instance.LoseLife();
     }
 }
