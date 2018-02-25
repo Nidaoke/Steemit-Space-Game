@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
 	private Rigidbody2D rgbd;
 	public float speed;
+    public float speedSec;
     public GameObject rockBullet;
 
     private bool right, left, up, down;
@@ -51,17 +52,23 @@ public class Player : MonoBehaviour {
         }
         else down = false;
 
+        if ((right && up) || (right && down) || (left && up) || (left && down))
+        {
+            speedSec = Mathf.Sqrt(.5f) * speed;
+        }
+        else speedSec = speed;
+
         if (right)
-            rgbd.velocity = new Vector2(speed, rgbd.velocity.y);
+            rgbd.velocity = new Vector2(speedSec, rgbd.velocity.y);
         else if (left)
-            rgbd.velocity = new Vector2(-speed, rgbd.velocity.y);
+            rgbd.velocity = new Vector2(-speedSec, rgbd.velocity.y);
         else
             rgbd.velocity = new Vector2(0, rgbd.velocity.y);
 
         if (up)
-            rgbd.velocity = new Vector2(rgbd.velocity.x, speed);
+            rgbd.velocity = new Vector2(rgbd.velocity.x, speedSec);
         else if (down)
-            rgbd.velocity = new Vector2(rgbd.velocity.x, -speed);
+            rgbd.velocity = new Vector2(rgbd.velocity.x, -speedSec);
         else
             rgbd.velocity = new Vector2(rgbd.velocity.x, 0);
     }
