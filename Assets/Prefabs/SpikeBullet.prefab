@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1412229107661852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2456555, y: 3.245657, z: 3.245657}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,8 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: 1
   followPlayer: 1
-  speed: 5
-  trans: {x: 0, y: 0}
+  justOffset: 0
+  typeOffsetNeg: 0
+  rgbd: {fileID: 0}
 --- !u!212 &212174046677504488
 SpriteRenderer:
   m_ObjectHideFlags: 1

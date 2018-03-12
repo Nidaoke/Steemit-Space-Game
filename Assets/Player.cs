@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speedSec;
     public GameObject rockBullet;
     public float bulletShootingSpeed;
+    public Transform bulletTransform;
     private float tempBulletSpeed;
 
     private bool right, left, up, down;
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour {
 
     void Shoot()
     {
-        GameObject rock = Instantiate(rockBullet, transform.position, Quaternion.identity) as GameObject;
+        GameObject rock = Instantiate(rockBullet, bulletTransform.position, Quaternion.identity) as GameObject;
         rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7);
         Destroy(rock, 5);
     }

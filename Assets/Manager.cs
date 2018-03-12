@@ -5,12 +5,14 @@ public class Manager : Singleton<Manager> {
 
 	//public string testGlobalVar = "test!";
 	public int loopCount = 0, playerLives = 3, playerScore = 0;
+    public float bulletSpeed = 5;
 	public float scrollSpeed = 1;
     public Text lifeText, scoreText;
     public GameObject player;
 
 	public void GetHarder(){
 		scrollSpeed *= 1.2f;
+        bulletSpeed *= 1.1f;
 		loopCount++;
 	}
 

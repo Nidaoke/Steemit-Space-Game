@@ -7,6 +7,9 @@ public class VertScrollingCode : MonoBehaviour {
 	public bool starting;
 	public VertScrollingCode otherOne;
 
+    //public Transform[] stegSpawns;
+
+
 	private float lessFloat;
 	private float setFloat;
 
@@ -25,7 +28,7 @@ public class VertScrollingCode : MonoBehaviour {
 		//transform.position += new Vector3 (0, -Manager.Instance.scrollSpeed, 0);
 
 		if (transform.position.y <= lessFloat) {
-			transform.position = new Vector3 (0, setFloat, 0); 
+			transform.position = new Vector3 (otherOne.GetStartingX(), setFloat, 0); 
 
 			Manager.Instance.GetHarder ();
 			Debug.Log ("Looped " + Manager.Instance.loopCount + " times");
@@ -34,7 +37,11 @@ public class VertScrollingCode : MonoBehaviour {
         transform.position += new Vector3(0, -Manager.Instance.scrollSpeed, 0);
     }
 
-	public float GetStartingY(){
+    public float GetStartingX()
+    {
+        return transform.position.x;
+    }
+    public float GetStartingY(){
 		return transform.position.y;
 	}
 	public void SetLessFloat(float newFloat){

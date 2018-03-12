@@ -4,29 +4,75 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public bool enemyBullet, followPlayer;
-    public float speed;
-    public Vector2 trans;
+    public bool enemyBullet, followPlayer, justOffset;
+    //public float speed;
+    //public Vector2 trans;
+
+    public bool typeOffsetNeg;
 
     private GameObject player;
-    private Rigidbody2D rgbd;
+    public Rigidbody2D rgbd;
 
 	// Use this for initialization
 	void Start () {
-        player = Manager.Instance.player;
-        rgbd = GetComponent<Rigidbody2D>();
+        if (player == null)
+            player = Manager.Instance.player;
+        if (rgbd == null)
+            rgbd = GetComponent<Rigidbody2D>();
 
+        Destroy(gameObject, 5);
+    }
+
+    public void TurnPlayer(float offset)
+    {
         if (followPlayer)
         {
+            if (player == null)
+                player = Manager.Instance.player;
+            if (rgbd == null)
+                rgbd = GetComponent<Rigidbody2D>();
+
             Vector3 dir = player.transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-            rgbd.velocity = transform.up * speed;
+
+            if (typeOffsetNeg == false)
+            {
+                transform.rotation = Quaternion.AngleAxis(angle - 90 + offset, Vector3.forward);
+                rgbd.velocity = transform.up * Manager.Instance.bulletSpeed;
+            }
+            else
+            {
+                transform.rotation = Quaternion.AngleAxis(angle - 270 + offset, Vector3.forward);
+                rgbd.velocity = transform.up * -Manager.Instance.bulletSpeed;
+            }
         }
-        
-	}
+    }
+
+    public void MoveToTarget(Transform target)
+    {
+        Vector3 dir = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (typeOffsetNeg == false)
+        {
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            rgbd.velocity = transform.up * Manager.Instance.bulletSpeed;
+        }
+        else
+        {
+            transform.rotation = Quaternion.AngleAxis(angle - 270, Vector3.forward);
+            rgbd.velocity = transform.up * -Manager.Instance.bulletSpeed;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "EnemyKiller")
+        {
+            Destroy(gameObject);
+        }
     }
 }

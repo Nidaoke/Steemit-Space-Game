@@ -5,13 +5,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public int health;
+    public float runSpeed;
     private float speedOffset;
-    private bool shootType;
+    private bool shootType, runType;
 
-    public float shootChance, shootTime;
+    public Rigidbody2D rgbd;
+
+    public float shootChance, shootTime, bulletTurnOffset;
     public GameObject bullet;
-    public Transform bulletTransform;
+    public Transform[] bulletTransform, bulletTargetTransform;
     private float tempShootTime = .5f;
+
+    public Transform runTarget;
+
+    //RegesRes
+    public int bulletCount = 0; //SET PRIVATE LATER
 
     public enum DinoType { Turtle, Pterodactyl, Rex, Triceratops, Velociraptor, Stegosaurus}
     public DinoType dinoType;
@@ -19,16 +27,25 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         speedOffset = Manager.Instance.scrollSpeed;
-
+        if (rgbd == null)
+            rgbd = GetComponent<Rigidbody2D>();
         SetTypeVariables();
+        Destroy(gameObject, 15);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-        MoveDown();
-
+        if (!runType)
+            MoveDown();
+        else
+            RunToTarget();
         if (shootType)
             WaitShoot();
+    }
+
+    void RunToTarget()
+    {
+        float step = runSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, runTarget.position, step);
     }
 
     void WaitShoot()
@@ -48,10 +65,29 @@ public class Enemy : MonoBehaviour {
     {
         if (Random.Range(0f, 1f) <= shootChance)
         {
-            if(Manager.Instance.player != null)
-                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            if (Manager.Instance.player != null)
+            {
+                if(dinoType == DinoType.Rex)                                                                                        //Reges
+                {
+                    Bullet bul1 = Instantiate(bullet, bulletTransform[bulletCount].position, Quaternion.identity).GetComponent<Bullet>();
+                    bul1.MoveToTarget(bulletTargetTransform[bulletCount]);
+                    if (bulletCount < 4)
+                        bulletCount++;
+                    else
+                        bulletCount = 0;
+                }
+
+                if(dinoType == DinoType.Stegosaurus)                                                                                //Stegi
+                {
+                    Bullet bul1 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                    bul1.TurnPlayer(0);
+                    Bullet bul2 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                    Bullet bul3 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                    bul2.TurnPlayer(bulletTurnOffset);
+                    bul3.TurnPlayer(-bulletTurnOffset);
+                }
+            }
         }
-        else Debug.Log("Failed to make bullet bad chance");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -75,10 +111,12 @@ public class Enemy : MonoBehaviour {
                 //
                 break;
             case DinoType.Rex:
-                //
+                shootType = true;
+                //shootMultiple = false;
                 break;
             case DinoType.Stegosaurus:
                 shootType = true;
+                //shootMultiple = true;
                 break;
             case DinoType.Triceratops:
                 //
@@ -87,7 +125,8 @@ public class Enemy : MonoBehaviour {
                 //
                 break;
             case DinoType.Velociraptor:
-                //
+                shootType = false;
+                runType = true;
                 break;
         }
     }
