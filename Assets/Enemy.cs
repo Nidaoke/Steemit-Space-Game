@@ -7,7 +7,10 @@ public class Enemy : MonoBehaviour {
     public int health;
     public float runSpeed;
     private float speedOffset;
-    private bool shootType, runType;
+    private bool shootType, runType, waitType;
+
+    public bool canBeShot = true;
+    private int turtleWait = 0;
 
     public Rigidbody2D rgbd;
 
@@ -30,16 +33,44 @@ public class Enemy : MonoBehaviour {
         if (rgbd == null)
             rgbd = GetComponent<Rigidbody2D>();
         SetTypeVariables();
-        Destroy(gameObject, 15);
+        tempShootTime = shootTime;
+        Destroy(gameObject, 20);
 	}
 	
 	void Update () {
+        if (waitType)
+            WaitDefense();
+
         if (!runType)
             MoveDown();
         else
             RunToTarget();
         if (shootType)
             WaitShoot();
+    }
+
+    void WaitDefense()
+    {
+        if (tempShootTime > 0)
+        {
+            tempShootTime -= Time.deltaTime;
+        }
+        else
+        {
+            tempShootTime = shootTime;
+            if (!canBeShot)
+                canBeShot = true;
+            else
+            {
+                if (turtleWait == 0)
+                    turtleWait = 1;
+                else
+                {
+                    turtleWait = 0;
+                    canBeShot = false;
+                }
+            }
+        }
     }
 
     void RunToTarget()
@@ -122,7 +153,10 @@ public class Enemy : MonoBehaviour {
                 //
                 break;
             case DinoType.Turtle:
-                //
+                shootType = false;
+                waitType = true;
+                runType = false;
+                canBeShot = false;
                 break;
             case DinoType.Velociraptor:
                 shootType = false;
@@ -133,10 +167,12 @@ public class Enemy : MonoBehaviour {
 
     void Shot()
     {
-        health--;
-        if(health <= 0)
-        {
-            Die(5);
+        if (canBeShot) {
+            health--;
+            if (health <= 0)
+            {
+                Die(5);
+            }
         }
     }
 
