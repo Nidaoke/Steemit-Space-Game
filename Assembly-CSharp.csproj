@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\FlameCode.cs" />
      <Compile Include="Assets\Manager.cs" />
      <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\RaptorSpawner.cs" />

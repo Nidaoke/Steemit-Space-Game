@@ -32,8 +32,8 @@ public class Enemy : MonoBehaviour {
         speedOffset = Manager.Instance.scrollSpeed;
         if (rgbd == null)
             rgbd = GetComponent<Rigidbody2D>();
-        SetTypeVariables();
         tempShootTime = shootTime;
+        SetTypeVariables();
         Destroy(gameObject, 20);
 	}
 	
@@ -117,6 +117,11 @@ public class Enemy : MonoBehaviour {
                     bul2.TurnPlayer(bulletTurnOffset);
                     bul3.TurnPlayer(-bulletTurnOffset);
                 }
+
+                if(dinoType == DinoType.Triceratops)
+                {
+                    Bullet bul1 = Instantiate(bullet, bulletTransform[0]).GetComponent<Bullet>();
+                }
             }
         }
     }
@@ -150,7 +155,11 @@ public class Enemy : MonoBehaviour {
                 //shootMultiple = true;
                 break;
             case DinoType.Triceratops:
-                //
+                tempShootTime = 1f;
+                shootType = true;
+                waitType = false;
+                runType = false;
+                canBeShot = true;
                 break;
             case DinoType.Turtle:
                 shootType = false;

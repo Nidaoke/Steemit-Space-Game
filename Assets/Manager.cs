@@ -10,6 +10,16 @@ public class Manager : Singleton<Manager> {
     public Text lifeText, scoreText;
     public GameObject player;
 
+    public void Update()
+    {
+        #if UNITY_STANDALONE
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        #endif
+    }
+
 	public void GetHarder(){
 		scrollSpeed *= 1.2f;
         bulletSpeed *= 1.1f;
