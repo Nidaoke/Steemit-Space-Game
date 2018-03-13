@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject, 5);
     }
 
-    public void TurnPlayer(float offset)
+    public void TurnPlayer(float offset) //STEG SHOOTING
     {
         if (followPlayer)
         {
@@ -33,6 +33,9 @@ public class Bullet : MonoBehaviour {
                 rgbd = GetComponent<Rigidbody2D>();
 
             Vector3 dir = player.transform.position - transform.position;
+            //Debug.Log(dir.y);
+            if (dir.y > -1f)
+                Destroy(gameObject);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
             if (typeOffsetNeg == false)
@@ -48,7 +51,7 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    public void MoveToTarget(Transform target)
+    public void MoveToTarget(Transform target) //TREX SHOOTING
     {
         Vector3 dir = target.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

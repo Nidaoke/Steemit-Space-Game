@@ -176,6 +176,7 @@ public class Enemy : MonoBehaviour {
                 break;
             case DinoType.Stegosaurus:
                 shootType = true;
+                tempShootTime = .8f;
                 //shootMultiple = true;
                 break;
             case DinoType.Triceratops:

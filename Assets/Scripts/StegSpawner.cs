@@ -5,6 +5,7 @@ using UnityEngine;
 public class StegSpawner : MonoBehaviour {
 
     public GameObject steg;
+    public bool flipX;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,10 @@ public class StegSpawner : MonoBehaviour {
     {
         if(other.gameObject.tag == "Respawn")
         {
-            Instantiate(steg, transform.position, Quaternion.identity);
+            GameObject pter1 = Instantiate(steg, transform.position, Quaternion.identity) as GameObject;
+
+            if (flipX)
+                pter1.transform.localScale = new Vector3(pter1.transform.localScale.x * -1, pter1.transform.localScale.y, pter1.transform.localScale.z);
         }
     }
 }
