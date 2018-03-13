@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour {
     public bool canBeShot = true;
     private int turtleWait = 0;
 
+    private int pterTargetMatch = 0;
+
     public Rigidbody2D rgbd;
 
     public float shootChance, shootTime, bulletTurnOffset;
@@ -19,7 +21,7 @@ public class Enemy : MonoBehaviour {
     public Transform[] bulletTransform, bulletTargetTransform;
     private float tempShootTime = .5f;
 
-    public Transform runTarget;
+    public Transform[] runTargets;
 
     //RegesRes
     public int bulletCount = 0; //SET PRIVATE LATER
@@ -79,7 +81,21 @@ public class Enemy : MonoBehaviour {
     void RunToTarget()
     {
         float step = runSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, runTarget.position, step);
+
+        if(dinoType == DinoType.Pterodactyl)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, runTargets[pterTargetMatch].position, step);
+            if(Vector3.Distance(transform.position, runTargets[pterTargetMatch].position) <= .25f)
+            {
+                if (pterTargetMatch < (runTargets.Length - 1))
+                {
+                    pterTargetMatch++;
+                }
+            }
+        }
+
+        if(dinoType == DinoType.Velociraptor)
+            transform.position = Vector3.MoveTowards(transform.position, runTargets[0].position, step);
     }
 
     void WaitShoot()
@@ -126,7 +142,8 @@ public class Enemy : MonoBehaviour {
 
                 if(dinoType == DinoType.Triceratops)
                 {
-                    Bullet bul1 = Instantiate(bullet, bulletTransform[0]).GetComponent<Bullet>();
+                    //Bullet bul1 = Instantiate(bullet, bulletTransform[0]).GetComponent<Bullet>();
+                    Instantiate(bullet, bulletTransform[0]);
                 }
             }
         }
@@ -150,7 +167,8 @@ public class Enemy : MonoBehaviour {
         switch (dinoType)
         {
             case DinoType.Pterodactyl:
-                //
+                shootType = false;
+                runType = true;
                 break;
             case DinoType.Rex:
                 shootType = true;

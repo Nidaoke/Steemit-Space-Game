@@ -35,8 +35,8 @@ public class RaptorSpawner : MonoBehaviour {
         for(int i = 0; i < countRap; i++)
         {
             GameObject rap1 = Instantiate(raptor, raptorSpawn.position, Quaternion.identity) as GameObject;
-            rap1.GetComponent<Enemy>().runTarget = raptorTarget;
-            rap1.transform.rotation = rap1.GetComponent<Enemy>().runTarget.rotation;
+            rap1.GetComponent<Enemy>().runTargets[0] = raptorTarget;
+            rap1.transform.rotation = rap1.GetComponent<Enemy>().runTargets[0].rotation;
             if (flipX)
                 rap1.transform.localScale = new Vector3(rap1.transform.localScale.x * -1, rap1.transform.localScale.y, rap1.transform.localScale.z);
             yield return new WaitForSeconds(delay);

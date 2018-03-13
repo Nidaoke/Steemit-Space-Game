@@ -101,8 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: 0
   followPlayer: 0
-  speed: 0
-  trans: {x: 0, y: 0}
+  justOffset: 0
+  typeOffsetNeg: 0
+  rgbd: {fileID: 0}
 --- !u!212 &212041830882570554
 SpriteRenderer:
   m_ObjectHideFlags: 1

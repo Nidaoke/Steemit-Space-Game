@@ -51,16 +51,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Bullet.cs" />
-     <Compile Include="Assets\Enemy.cs" />
-     <Compile Include="Assets\FlameCode.cs" />
-     <Compile Include="Assets\Manager.cs" />
-     <Compile Include="Assets\Player.cs" />
-     <Compile Include="Assets\RaptorSpawner.cs" />
-     <Compile Include="Assets\RegesSpawner.cs" />
-     <Compile Include="Assets\Singleton.cs" />
-     <Compile Include="Assets\StegSpawner.cs" />
-     <Compile Include="Assets\VertScrollingCode.cs" />
+     <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\FlameCode.cs" />
+     <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PterSpawner.cs" />
+     <Compile Include="Assets\Scripts\RaptorSpawner.cs" />
+     <Compile Include="Assets\Scripts\RegesSpawner.cs" />
+     <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\StegSpawner.cs" />
+     <Compile Include="Assets\Scripts\TestFlyDist.cs" />
+     <Compile Include="Assets\Scripts\VertScrollingCode.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
