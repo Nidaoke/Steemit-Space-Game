@@ -4318,7 +4318,7 @@ Transform:
   - {fileID: 791381462}
   - {fileID: 1285574370}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643907519
 GameObject:
@@ -5697,7 +5697,7 @@ GameObject:
   - component: {fileID: 893436880}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7428,7 +7428,7 @@ RectTransform:
   - {fileID: 927986154}
   - {fileID: 384302548}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9245,7 +9245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4647898905504610, guid: ee3200764150754429dd941d2262c9e6, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee3200764150754429dd941d2262c9e6, type: 2}

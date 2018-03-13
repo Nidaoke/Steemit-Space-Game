@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour {
     public enum DinoType { Turtle, Pterodactyl, Rex, Triceratops, Velociraptor, Stegosaurus}
     public DinoType dinoType;
 
+    public GameObject player;
+
 	// Use this for initialization
 	void Start () {
         speedOffset = Manager.Instance.scrollSpeed;
@@ -34,7 +36,8 @@ public class Enemy : MonoBehaviour {
             rgbd = GetComponent<Rigidbody2D>();
         tempShootTime = shootTime;
         SetTypeVariables();
-        Destroy(gameObject, 20);
+        player = GameObject.FindGameObjectWithTag("Player");
+        //Destroy(gameObject, 20);
 	}
 	
 	void Update () {
@@ -110,12 +113,15 @@ public class Enemy : MonoBehaviour {
 
                 if(dinoType == DinoType.Stegosaurus)                                                                                //Stegi
                 {
-                    Bullet bul1 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
-                    bul1.TurnPlayer(0);
-                    Bullet bul2 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
-                    Bullet bul3 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
-                    bul2.TurnPlayer(bulletTurnOffset);
-                    bul3.TurnPlayer(-bulletTurnOffset);
+                    if (player.transform.position.y <= transform.position.y)
+                    {
+                        Bullet bul1 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                        bul1.TurnPlayer(0);
+                        Bullet bul2 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                        Bullet bul3 = Instantiate(bullet, bulletTransform[0].position, Quaternion.identity).GetComponent<Bullet>();
+                        bul2.TurnPlayer(bulletTurnOffset);
+                        bul3.TurnPlayer(-bulletTurnOffset);
+                    }
                 }
 
                 if(dinoType == DinoType.Triceratops)
