@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour {
     //public float speed;
     //public Vector2 trans;
 
+    public bool moveDown;
+    public float moveDownSpeed;
+
     public bool typeOffsetNeg;
 
     private GameObject player;
@@ -21,6 +24,11 @@ public class Bullet : MonoBehaviour {
             rgbd = GetComponent<Rigidbody2D>();
 
         Destroy(gameObject, 5);
+
+        if (moveDown)
+        {
+            rgbd.velocity = new Vector2(0, -moveDownSpeed);
+        }
     }
 
     public void TurnPlayer(float offset) //STEG SHOOTING

@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour {
     {
         if (Random.Range(0f, 1f) <= shootChance)
         {
-            if (Manager.Instance.player != null)
+            //if (Manager.Instance.player != null)
             {
                 if(dinoType == DinoType.Rex)                                                                                        //Reges
                 {
@@ -125,6 +125,16 @@ public class Enemy : MonoBehaviour {
                         bulletCount++;
                     else
                         bulletCount = 0;
+                }
+
+                if(dinoType == DinoType.Pterodactyl)
+                {
+                    Debug.Log("Shothot");
+                    if(Mathf.Abs(transform.position.x - runTargets[pterTargetMatch].position.x) > Mathf.Abs(transform.position.y - runTargets[pterTargetMatch].position.y))
+                    {
+                        Instantiate(bullet, bulletTransform[0].position, Quaternion.identity);
+                        GetComponent<Animator>().SetBool("canSpit", true);
+                    }
                 }
 
                 if(dinoType == DinoType.Stegosaurus)                                                                                //Stegi
@@ -167,7 +177,7 @@ public class Enemy : MonoBehaviour {
         switch (dinoType)
         {
             case DinoType.Pterodactyl:
-                shootType = false;
+                shootType = true;
                 runType = true;
                 break;
             case DinoType.Rex:

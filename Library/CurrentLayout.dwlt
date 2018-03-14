@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1746
     height: 849
-  m_MinSize: {x: 611, y: 492}
-  m_MaxSize: {x: 18006, y: 14042}
+  m_MinSize: {x: 613, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 10
+  controlID: 54
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 11
+  controlID: 55
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -232,8 +232,8 @@ MonoBehaviour:
     y: 0
     width: 509
     height: 849
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -346,23 +346,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 582c0000
-    m_LastClickedID: 11352
-    m_ExpandedIDs: 9efbffff00000000a8290000ec290000522a0000ca2a00008e2b0000ac2b00000c2d0000082e0000622e0000da2e0000082f0000b62f0000e82f000062300000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 2
-      m_OriginalName: 2
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10638
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 6}
     m_SearchString: 
@@ -404,9 +404,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.5030656, y: 7.4543257, z: -0.0078125}
+    m_Target: {x: 0.5152178, y: -0.358665, z: 0.19804892}
     speed: 2
-    m_Value: {x: -2.5030656, y: 7.4543257, z: -0.0078125}
+    m_Value: {x: 0.5152178, y: -0.358665, z: 0.19804892}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -434,9 +434,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 28.062653
+    m_Target: 8.119392
     speed: 2
-    m_Value: 28.062653
+    m_Value: 8.119392
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -470,10 +470,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 468
-    y: 181
-    width: 973
-    height: 501
+    x: 283
+    y: 92
+    width: 952
+    height: 529
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &15
 MonoBehaviour:
@@ -512,6 +512,10 @@ MonoBehaviour:
     - {fileID: 1107582058574887404, guid: f6fa2ed3cc128f841aa193672dafc060, type: 2}
     - {fileID: 1107158836294677920, guid: dd3410ba73292e24daa2324971dcd705, type: 2}
     - {fileID: 1107892969512558694, guid: c924ff04cf06e694ebc183303d6cd077, type: 2}
+    - {fileID: 1107896246304241730, guid: 17184dc639d7e404b86ab63d6c36ce65, type: 2}
+    - {fileID: 1107439509835201798, guid: cc32cb4b7be725242b39651ae133fd5f, type: 2}
+    - {fileID: 1107137692436842188, guid: b6b8c19bb0913f646b4eeec8ef0e5da2, type: 2}
+    - {fileID: 1107536087700873042, guid: 30bbe24db98a1e847bf0da675e48a5cc, type: 2}
     m_ValueSerializationHelper:
     - e00: 1
       e01: 0
@@ -625,6 +629,70 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.72
+      e01: 0
+      e02: 0
+      e03: -21
+      e10: 0
+      e11: 0.72
+      e12: 0
+      e13: 185.8
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.72
+      e01: 0
+      e02: 0
+      e03: -21
+      e10: 0
+      e11: 0.72
+      e12: 0
+      e13: 185.8
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.72
+      e01: 0
+      e02: 0
+      e03: -21
+      e10: 0
+      e11: 0.72
+      e12: 0
+      e13: 198.76
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.72
+      e01: 0
+      e02: 0
+      e03: -21
+      e10: 0
+      e11: 0.72
+      e12: 0
+      e13: 185.8
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
     - e00: 1
       e01: 0
       e02: 0
@@ -693,19 +761,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Philip Assets/AnimStuff
+    - Assets/Prefabs/Dinos
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Philip Assets/AnimStuff
+  - Assets/Prefabs/Dinos
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Nidolabz\Documents\GitHub\Steemit-Space-Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0e280000
-    m_LastClickedID: 10254
-    m_ExpandedIDs: 000000008e270000aa270000f428000000ca9a3bffffff7f
+    m_SelectedIDs: 76280000
+    m_LastClickedID: 10358
+    m_ExpandedIDs: 000000008e270000ac2700001829000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -733,7 +801,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e270000aa270000f4280000
+    m_ExpandedIDs: 000000008e270000ac27000018290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -761,7 +829,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 9c2800000801f6ff92270000a0280000e82700000e28000088270000da2800003e28000086280000ec280000cc280000
+    m_ExpandedInstanceIDs: 9c2800000801f6ff92270000a0280000e82700000e28000088270000da2800003e28000086280000ec280000cc280000d0280000c2ccffff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -785,7 +853,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 29.5}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 200
 --- !u!114 &17
