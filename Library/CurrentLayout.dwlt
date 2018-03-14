@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1746
     height: 849
-  m_MinSize: {x: 613, y: 492}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 611, y: 492}
+  m_MaxSize: {x: 18006, y: 14042}
   vertical: 0
-  controlID: 54
+  controlID: 10
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,8 +129,8 @@ MonoBehaviour:
     y: 0
     width: 281
     height: 849
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 55
+  controlID: 11
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -346,23 +346,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 9efbffff00000000
+    m_SelectedIDs: 6a2c0000
+    m_LastClickedID: 11370
+    m_ExpandedIDs: 9cfbffff9efbffff00000000aa2a0000542c00006a2c0000822c00000a2d00004e2d00003a3000004e300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: rock pile
+      m_OriginalName: rock pile
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -341966
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 6}
     m_SearchString: 
@@ -404,9 +404,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.5152178, y: -0.358665, z: 0.19804892}
+    m_Target: {x: 2.6976032, y: 0.616604, z: 0.05980286}
     speed: 2
-    m_Value: {x: 0.5152178, y: -0.358665, z: 0.19804892}
+    m_Value: {x: 2.6976032, y: 0.616604, z: 0.05980286}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -434,9 +434,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.119392
+    m_Target: 22.973257
     speed: 2
-    m_Value: 8.119392
+    m_Value: 22.973257
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -761,18 +761,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Dinos
+    - Assets/Prefabs/Bullets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Dinos
+  - Assets/Prefabs/Bullets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Nidolabz\Documents\GitHub\Steemit-Space-Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 76280000
-    m_LastClickedID: 10358
+    m_SelectedIDs: f4270000
+    m_LastClickedID: 10228
     m_ExpandedIDs: 000000008e270000ac2700001829000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -828,8 +828,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 9c2800000801f6ff92270000a0280000e82700000e28000088270000da2800003e28000086280000ec280000cc280000d0280000c2ccffff
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: 9c2800000801f6ff92270000a0280000e82700000e28000088270000da2800003e28000086280000ec280000cc280000d0280000c2ccffffb027000046290000b8270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -910,7 +910,7 @@ MonoBehaviour:
     width: 507
     height: 828
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 45.95508}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160

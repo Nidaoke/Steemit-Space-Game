@@ -9,6 +9,7 @@ TagManager:
   - EnemyKiller
   - EnemyBullet
   - RaptorTarget
+  - RockPickUp
   layers:
   - Default
   - TransparentFX

@@ -129,7 +129,6 @@ public class Enemy : MonoBehaviour {
 
                 if(dinoType == DinoType.Pterodactyl)
                 {
-                    Debug.Log("Shothot");
                     if(Mathf.Abs(transform.position.x - runTargets[pterTargetMatch].position.x) > Mathf.Abs(transform.position.y - runTargets[pterTargetMatch].position.y))
                     {
                         Instantiate(bullet, bulletTransform[0].position, Quaternion.identity);
