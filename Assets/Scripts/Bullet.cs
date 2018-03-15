@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour {
     public bool moveDown;
     public float moveDownSpeed;
 
+    public bool killSelfOnCollision;
+
     public bool typeOffsetNeg;
 
     private GameObject player;

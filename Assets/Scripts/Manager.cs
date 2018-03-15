@@ -8,10 +8,10 @@ public class Manager : Singleton<Manager> {
     public float bulletSpeed = 5;
 	public float scrollSpeed = 1;
     public Text lifeText, scoreText;
-    public Image rockPileImage;
+    public Image rockPileImage, boomerangImage;
     public GameObject player;
 
-    public bool collectedRock;
+    public bool collectedRock, collectedBoomerang;
 
     public void Update()
     {
@@ -33,6 +33,18 @@ public class Manager : Singleton<Manager> {
     {
         collectedRock = false;
         rockPileImage.enabled = false;
+    }
+
+    public void BoomerangPickUp()
+    {
+        collectedBoomerang = true;
+        boomerangImage.enabled = true;
+    }
+
+    public void BoomerangEnd()
+    {
+        collectedBoomerang = false;
+        boomerangImage.enabled = false;
     }
 
 	public void GetHarder(){

@@ -162,7 +162,8 @@ public class Enemy : MonoBehaviour {
     {
         if (other.gameObject.tag == "Bullet"){
             Shot();
-            Destroy(other.gameObject);
+            if(other.gameObject.GetComponent<Bullet> ().killSelfOnCollision)
+                Destroy(other.gameObject);
         }
 
         if(other.gameObject.tag == "EnemyKiller")

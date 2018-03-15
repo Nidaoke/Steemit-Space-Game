@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rgbd;
 	public float speed;
     public float speedSec;
-    public GameObject rockBullet;
+    public GameObject rockBullet, boomerangBullet;
     public float bulletShootingSpeed;
     public Transform bulletTransform;
     private float tempBulletSpeed;
@@ -17,9 +17,9 @@ public class Player : MonoBehaviour {
     public bool invincible, canShoot;
     public float iFrames;
 
-    private bool shootThree;
-    private float tempTriTime;
-    public float triOffset, triTime;
+    private bool shootThree, shootBoomerang;
+    private float tempTriTime, tempBoomTime;
+    public float triOffset, triTime, boomTime;
 
     private bool right, left, up, down;
 
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	void Start () {
         tempBulletSpeed = bulletShootingSpeed;
         tempTriTime = triTime;
+        tempBoomTime = boomTime;
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
 	}
 	
@@ -40,14 +41,14 @@ public class Player : MonoBehaviour {
 
     void Inputs()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Manager.Instance.collectedRock)
             {
                 shootThree = true;
                 Manager.Instance.RockEnd();
             }
-        }
+        }*/
 
         //if (Input.GetAxis("Horizontal") > .3)
         if (Input.GetKey(KeyCode.RightArrow))
@@ -116,15 +117,29 @@ public class Player : MonoBehaviour {
         {
             ShootThree();
         }
+
+        if (shootBoomerang)
+        {
+            WaitBoomerang();
+        }
     }
 
     void Shoot()
     {
         if (canShoot)
         {
-            GameObject rock = Instantiate(rockBullet, bulletTransform.position, Quaternion.identity) as GameObject;
-            rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7);
-            Destroy(rock, 5);
+            if (shootBoomerang)
+            {
+                GameObject rock = Instantiate(boomerangBullet, bulletTransform.position, Quaternion.identity) as GameObject;
+                rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 8);
+                Destroy(rock, 5);
+            }
+            else
+            {
+                GameObject rock = Instantiate(rockBullet, bulletTransform.position, Quaternion.identity) as GameObject;
+                rock.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7);
+                Destroy(rock, 5);
+            }
 
             if (shootThree)
             {
@@ -152,7 +167,15 @@ public class Player : MonoBehaviour {
 
         if(other.gameObject.tag == "RockPickUp")
         {
+            shootThree = true;
             Manager.Instance.RockPickUp();
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag == "BoomerangPickUp")
+        {
+            shootBoomerang = true;
+            Manager.Instance.BoomerangPickUp();
             Destroy(other.gameObject);
         }
     }
@@ -166,7 +189,22 @@ public class Player : MonoBehaviour {
         else
         {
             shootThree = false;
+            Manager.Instance.RockEnd();
             tempTriTime = triTime;
+        }
+    }
+
+    void WaitBoomerang()
+    {
+        if(tempBoomTime > 0)
+        {
+            tempBoomTime -= Time.deltaTime;
+        }
+        else
+        {
+            shootBoomerang = false;
+            Manager.Instance.BoomerangEnd();
+            tempBoomTime = boomTime;
         }
     }
 
