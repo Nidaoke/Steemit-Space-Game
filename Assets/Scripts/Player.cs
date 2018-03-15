@@ -178,6 +178,12 @@ public class Player : MonoBehaviour {
             Manager.Instance.BoomerangPickUp();
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.tag == "FoodPickUp")
+        {
+            Manager.Instance.GainLife();
+            Destroy(other.gameObject);
+        }
     }
 
     void ShootThree()

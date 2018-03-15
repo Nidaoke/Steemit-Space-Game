@@ -11,6 +11,7 @@ TagManager:
   - RaptorTarget
   - RockPickUp
   - BoomerangPickUp
+  - FoodPickUp
   layers:
   - Default
   - TransparentFX

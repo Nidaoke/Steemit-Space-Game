@@ -13,6 +13,11 @@ public class Manager : Singleton<Manager> {
 
     public bool collectedRock, collectedBoomerang;
 
+    public void Start()
+    {
+        ShowLives();
+    }
+
     public void Update()
     {
         #if UNITY_STANDALONE
@@ -53,15 +58,27 @@ public class Manager : Singleton<Manager> {
 		loopCount++;
 	}
 
+    void ShowLives()
+    {
+        lifeText.text = ("Lives: " + playerLives);
+    }
+
     public void LoseLife()
     {
         playerLives--;
-        lifeText.text = ("Lives: " + playerLives);
 
+        ShowLives();
+        
         if(playerLives <= 0)
         {
             GameOver();
         }
+    }
+
+    public void GainLife()
+    {
+        playerLives++;
+        ShowLives();
     }
 
     public void IncreaseScore(int score)
