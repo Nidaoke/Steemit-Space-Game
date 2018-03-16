@@ -21,7 +21,7 @@ public class Manager : Singleton<Manager> {
     public void Start()
     {
         ShowLives();
-        #if UNITY_STANDALONE
+        #if UNITY_EDITOR
             scrollSpeed *= 2;
         #endif
     }
