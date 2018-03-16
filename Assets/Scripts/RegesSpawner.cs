@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegesSpawner : MonoBehaviour {
+public class RegesSpawner : SpawnerGeneric {
 
     public GameObject rex;
 
@@ -15,14 +15,22 @@ public class RegesSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Respawn")
         {
-            Instantiate(rex, transform.position, Quaternion.identity);
+            if (spawnSpecial)
+            {
+                GameObject spec = Instantiate(rex, transform.position, Quaternion.identity) as GameObject;
+                spec.GetComponent<SpriteRenderer>().color = color;
+                spec.GetComponent<Enemy>().spawnBonus = true;
+                spawnSpecial = false;
+            }
+            else
+                Instantiate(rex, transform.position, Quaternion.identity);
         }
     }
 }

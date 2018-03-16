@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour {
     private float speedOffset;
     private bool shootType, runType, waitType;
 
+    public bool spawnBonus;
+    public GameObject foodPickUp, triPickUp, boomerangPickUp;
+
+    public bool alsoRunDown;
+
     public bool canBeShot = true;
     private int turtleWait = 0;
 
@@ -38,13 +43,17 @@ public class Enemy : MonoBehaviour {
             rgbd = GetComponent<Rigidbody2D>();
         tempShootTime = shootTime;
         SetTypeVariables();
+        health = Manager.Instance.enemyHealth;
         player = GameObject.FindGameObjectWithTag("Player");
-        //Destroy(gameObject, 20);
+        Destroy(gameObject, 15);
 	}
 	
 	void Update () {
         if (waitType)
             WaitDefense();
+
+        if (alsoRunDown)
+            MoveDown();
 
         if (!runType)
             MoveDown();
@@ -52,6 +61,16 @@ public class Enemy : MonoBehaviour {
             RunToTarget();
         if (shootType)
             WaitShoot();
+
+        if(dinoType == DinoType.Pterodactyl)
+        {
+            runSpeed = 4 + Manager.Instance.scrollSpeed * (1 / .015f);
+        }
+
+        if(dinoType == DinoType.Velociraptor)
+        {
+            runSpeed = 5 + Manager.Instance.scrollSpeed * (1 / .015f);
+        }
     }
 
     void WaitDefense()
@@ -215,6 +234,23 @@ public class Enemy : MonoBehaviour {
             health--;
             if (health <= 0)
             {
+                if (spawnBonus)
+                {
+                    float ran = Random.value;
+                    if (ran <= .45f)
+                    {
+                        Instantiate(boomerangPickUp, transform.position, Quaternion.identity);
+                    }
+                    else if (ran <= .9f)
+                    {
+                        Instantiate(triPickUp, transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(foodPickUp, transform.position, Quaternion.identity);
+                    }
+                }
+
                 Die(5);
             }
         }

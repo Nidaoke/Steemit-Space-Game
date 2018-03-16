@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaptorSpawner : MonoBehaviour {
+public class RaptorSpawner : SpawnerGeneric {
 
     public GameObject raptor;
     public Transform raptorSpawn, raptorTarget;
@@ -39,6 +39,14 @@ public class RaptorSpawner : MonoBehaviour {
             rap1.transform.rotation = rap1.GetComponent<Enemy>().runTargets[0].rotation;
             if (flipX)
                 rap1.transform.localScale = new Vector3(rap1.transform.localScale.x * -1, rap1.transform.localScale.y, rap1.transform.localScale.z);
+
+            if (spawnSpecial)
+            {
+                rap1.GetComponent<SpriteRenderer>().color = color;
+                rap1.GetComponent<Enemy>().spawnBonus = true;
+                spawnSpecial = false;
+            }
+
             yield return new WaitForSeconds(delay);
         }
     }

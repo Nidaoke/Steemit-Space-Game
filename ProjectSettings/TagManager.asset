@@ -12,6 +12,7 @@ TagManager:
   - RockPickUp
   - BoomerangPickUp
   - FoodPickUp
+  - Spawner
   layers:
   - Default
   - TransparentFX

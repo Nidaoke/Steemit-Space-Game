@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1412229107661852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_LocalScale: {x: 4.4000173, y: 4.4000163, z: 4.4000163}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,6 +102,9 @@ MonoBehaviour:
   enemyBullet: 1
   followPlayer: 1
   justOffset: 0
+  moveDown: 1
+  moveDownSpeed: 1
+  killSelfOnCollision: 0
   typeOffsetNeg: 0
   rgbd: {fileID: 0}
 --- !u!212 &212174046677504488

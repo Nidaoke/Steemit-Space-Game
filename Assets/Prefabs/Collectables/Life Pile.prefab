@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212822728353547026}
   - component: {fileID: 50775467720643352}
   - component: {fileID: 61822642855467692}
+  - component: {fileID: 114985909131879066}
   m_Layer: 0
   m_Name: Life Pile
   m_TagString: FoodPickUp
@@ -87,6 +88,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &114985909131879066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838766140964730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32557b3f95dbc424caf292c78ce8acb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212822728353547026
 SpriteRenderer:
   m_ObjectHideFlags: 1

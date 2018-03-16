@@ -122,6 +122,7 @@ MonoBehaviour:
   justOffset: 0
   moveDown: 1
   moveDownSpeed: 5
+  killSelfOnCollision: 0
   typeOffsetNeg: 0
   rgbd: {fileID: 50790266350593548}
 --- !u!212 &212356944188620096

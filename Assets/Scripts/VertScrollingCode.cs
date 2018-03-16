@@ -7,6 +7,8 @@ public class VertScrollingCode : MonoBehaviour {
 	public bool starting;
 	public VertScrollingCode otherOne;
 
+    public GameObject[] spawners;
+
     //public Transform[] stegSpawns;
 
 
@@ -35,6 +37,14 @@ public class VertScrollingCode : MonoBehaviour {
 		}
 
         transform.position += new Vector3(0, -Manager.Instance.scrollSpeed, 0);
+    }
+
+    public void SpawnBonus()
+    {
+        Debug.Log("Spawn Bonus Called!");
+        int index = Random.Range(0, spawners.Length);
+        spawners[index].GetComponent<SpawnerGeneric>().spawnSpecial = true;
+        Debug.Log("Spawned at " + index);
     }
 
     public float GetStartingX()

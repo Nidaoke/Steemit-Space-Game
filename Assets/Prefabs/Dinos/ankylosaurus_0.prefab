@@ -119,6 +119,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   runSpeed: 0
+  spawnBonus: 0
+  foodPickUp: {fileID: 1838766140964730, guid: ea0a30c074927394eb79529715e2c5fc, type: 2}
+  triPickUp: {fileID: 1071021986386192, guid: 57a26a04fc253784285f0ef331f00d5f, type: 2}
+  boomerangPickUp: {fileID: 1129160733705662, guid: 0974c25f1b55bd841bbadf425e50042a,
+    type: 2}
   canBeShot: 1
   rgbd: {fileID: 0}
   shootChance: 0

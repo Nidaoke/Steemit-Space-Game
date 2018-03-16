@@ -120,6 +120,9 @@ MonoBehaviour:
   enemyBullet: 1
   followPlayer: 1
   justOffset: 0
+  moveDown: 1
+  moveDownSpeed: 1
+  killSelfOnCollision: 0
   typeOffsetNeg: 1
   rgbd: {fileID: 50987708513557422}
 --- !u!212 &212818695184541028

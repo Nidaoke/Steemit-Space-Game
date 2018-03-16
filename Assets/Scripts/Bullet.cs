@@ -26,11 +26,6 @@ public class Bullet : MonoBehaviour {
             rgbd = GetComponent<Rigidbody2D>();
 
         Destroy(gameObject, 5);
-
-        if (moveDown)
-        {
-            rgbd.velocity = new Vector2(0, -moveDownSpeed);
-        }
     }
 
     public void TurnPlayer(float offset) //STEG SHOOTING
@@ -79,6 +74,10 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (moveDown)
+        {
+            transform.position += new Vector3(0, -moveDownSpeed * Manager.Instance.scrollSpeed, 0);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
